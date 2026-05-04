@@ -1,16 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Redesign - Focus Mode</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="icon-btn" id="menuBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="logo">
+                <svg width="28" height="20" viewBox="0 0 28 20" fill="none">
+                    <path d="M27.5 3.5C27.5 3.5 27.25 1.75 26.5 1C25.5 0 24.375 0 23.875 0C20 0 14 0 14 0C14 0 8 0 4.125 0C3.625 0 2.5 0 1.5 1C0.75 1.75 0.5 3.5 0.5 3.5C0.5 3.5 0 5.5 0 7.5V9.5C0 11.5 0.5 13.5 0.5 13.5C0.5 13.5 0.75 15.25 1.5 16C2.5 17 3.625 17 4.125 17C6 17.125 14 17.25 14 17.25C14 17.25 20 17.25 23.875 17.25C24.375 17.25 25.5 17.25 26.5 16.25C27.25 15.5 27.5 13.75 27.5 13.75C27.5 13.75 28 11.75 28 9.75V7.75C28 5.5 27.5 3.5 27.5 3.5Z" fill="#FF0000"/>
+                    <path d="M11 12.5V5L18.5 8.75L11 12.5Z" fill="white"/>
+                </svg>
+                <span class="logo-text">YouTube</span>
+            </div>
+        </div>
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>YouTube Watch Page Redesign</title>
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-    </head>
+        <div class="nav-center">
+            <div class="search-box">
+                <input type="text" placeholder="Search" class="search-input">
+                <button class="search-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="icon-btn-round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+            </button>
+        </div>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+        <div class="nav-right">
+            <button class="icon-btn" id="keyboardBtn" title="Keyboard shortcuts (?)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"></path>
+                </svg>
+            </button>
+            <button class="icon-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 7l-7 5 7 5V7z"></path>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+            </button>
+            <button class="icon-btn notification-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="notification-dot"></span>
+            </button>
+            <button class="user-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="content-wrapper">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Video Player -->
+                <div class="video-player" id="videoPlayer">
+                    <div class="video-content">
+                        <div class="video-placeholder"></div>
+                    </div>
+
+                    <!-- Center Play Button -->
+                    <button class="center-play-btn" id="centerPlayBtn">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+
+                    <!-- Video Controls -->
+                    <div class="video-controls" id="videoControls">
+                        <div class="progress-container">
+                            <input type="range" class="progress-bar" id="progressBar" min="0" max="1245" value="0">
+                        </div>
+
+                        <div class="controls-row">
+                            <div class="controls-left">
+                                <button class="control-btn" id="playPauseBtn">
+                                    <svg class="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    <svg class="pause-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                        <rect x="6" y="4" width="4" height="16"></rect>
+                                        <rect x="14" y="4" width="4" height="16"></rect>
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="skipBackBtn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                                        <line x1="5" y1="19" x2="5" y2="5"></line>
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="skipForwardBtn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                                        <line x1="19" y1="5" x2="19" y2="19"></line>
+                                    </svg>
+                                </button>
+                                <div class="volume-control">
+                                    <button class="control-btn" id="muteBtn">
+                                        <svg class="volume-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                        </svg>
+                                        <svg class="mute-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                                        </svg>
+                                    </button>
+                                    <div class="volume-slider" id="volumeSlider">
+                                        <input type="range" class="volume-input" id="volumeInput" min="0" max="100" value="100">
+                                        <span class="volume-text" id="volumeText">100%</span>
+                                    </div>
+                                </div>
+                                <span class="time-display" id="timeDisplay">0:00 / 20:45</span>
+                            </div>
+                            <div class="controls-right">
+                                <button class="control-btn speed-btn" id="speedBtn">1x</button>
+                                <div class="settings-menu" id="settingsMenu">
+                                    <div class="settings-section">
+                                        <div class="settings-title">Playback Speed</div>
+                                        <button class="settings-item" data-speed="0.25">0.25x</button>
+                                        <button class="settings-item" data-speed="0.5">0.5x</button>
+                                        <button class="settings-item" data-speed="0.75">0.75x</button>
+                                        <button class="settings-item active" data-speed="1">Normal</button>
+                                        <button class="settings-item" data-speed="1.25">1.25x</button>
+                                        <button class="settings-item" data-speed="1.5">1.5x</button>
+                                        <button class="settings-item" data-speed="1.75">1.75x</button>
+                                        <button class="settings-item" data-speed="2">2x</button>
+                                    </div>
+                                    <div class="settings-section">
+                                        <div class="settings-title">Quality</div>
+                                        <button class="settings-item">2160p</button>
+                                        <button class="settings-item">1440p</button>
+                                        <button class="settings-item active">1080p</button>
+                                        <button class="settings-item">720p</button>
+                                        <button class="settings-item">480p</button>
+                                        <button class="settings-item">360p</button>
+                                    </div>
+                                </div>
+                                <button class="control-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M12 1v6m0 6v6m7.071-13.071l-4.242 4.242m0 5.656l4.242 4.242M1 12h6m6 0h6M5.929 5.929l4.242 4.242m5.656 0l4.242-4.242"></path>
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="fullscreenBtn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Knowledge Panel -->
+                <div class="knowledge-panel">
+                    <h2 class="section-title">Knowledge Panel</h2>
+                    <div class="knowledge-panel-content">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="transcript">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                </svg>
+                                Transcript
+                            </button>
+                            <button class="tab" data-tab="chapters">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                                Chapters
+                            </button>
+                        </div>
+                        <div class="tab-content" id="transcriptTab">
+                            <div class="transcript-list" id="transcriptList"></div>
+                        </div>
+                        <div class="tab-content hidden" id="chaptersTab">
+                            <div class="chapters-list" id="chaptersList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Info -->
+                <div class="video-info">
+                    <h1 class="video-title">The Future of Web Development: Modern Tools and Techniques</h1>
+                    <div class="video-meta">
+                        <div class="channel-info">
+                            <div class="channel-avatar"></div>
+                            <div class="channel-details">
+                                <span class="channel-name">Tech Insights</span>
+                                <span class="channel-subs">2.4M subscribers</span>
+                            </div>
+                            <button class="subscribe-btn">Subscribe</button>
+                        </div>
+                        <div class="action-buttons">
+                            <div class="like-dislike">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                    </svg>
+                                    <span>24K</span>
+                                </button>
+                                <div class="divider"></div>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="action-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="18" cy="5" r="3"></circle>
+                                    <circle cx="6" cy="12" r="3"></circle>
+                                    <circle cx="18" cy="19" r="3"></circle>
+                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                </svg>
+                                <span>Share</span>
+                            </button>
+                            <button class="action-btn" id="saveBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                <span id="saveBtnText">Save</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-description">
+                        <div class="description-meta">
+                            <span>1,245,678 views</span>
+                            <span>Apr 5, 2026</span>
+                        </div>
+                        <p class="description-text">
+                            Explore the latest trends in web development, including modern frameworks,
+                            tools, and best practices that are shaping the future of the web.
+                            <button class="more-btn">...more</button>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Comments -->
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <h3>1,234 Comments</h3>
+                    </div>
+                    <div class="comment-input-section">
+                        <div class="comment-avatar"></div>
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                    </div>
+                    <div class="comments-list" id="commentsList"></div>
+                </div>
+            </div>
+
+            <!-- Right Column - Sidebar -->
+            <div class="right-column">
+                <div class="sidebar-header">
+                    <button class="focus-mode-btn" id="focusModeBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <span>Focus Mode</span>
+                    </button>
+                </div>
+                <div class="category-filters hidden" id="categoryFilters">
+                    <div class="filter-header">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                        </svg>
+                        <span>Filter by category:</span>
+                    </div>
+                    <div class="filter-tags" id="filterTags"></div>
+                    <button class="clear-filters hidden" id="clearFilters">Clear filters</button>
+                </div>
+                <div class="recommended-videos" id="recommendedVideos"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="modal-overlay hidden" id="shortcutsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Keyboard Shortcuts</h2>
+                <button class="close-btn" id="closeShortcutsBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="shortcuts-list" id="shortcutsList"></div>
+            <div class="modal-footer">
+                Press <kbd>?</kbd> anytime to toggle this menu
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
